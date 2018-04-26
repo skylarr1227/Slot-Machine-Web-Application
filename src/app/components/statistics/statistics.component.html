@@ -1,0 +1,25 @@
+
+<div class="jumbotron">
+  <div class="row">    
+    <div class="col-md-8 text-center">
+      <div *ngIf="details">
+        <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <li *ngFor="let detail of details">
+        <h1>{{detail.matchLost}}</h1>
+      </li>
+    </div>
+  </div>
+  <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+      <button class="btn btn-info btn-lg" (click)="randomizeType()">TOGGLE</button>
+  </div>    
+</div>
+
